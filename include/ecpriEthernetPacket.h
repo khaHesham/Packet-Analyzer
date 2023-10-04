@@ -19,6 +19,7 @@ class ECPRI: public Packet{
     void setProtocolVersion(string protocolVersion);
     void setRtcID(string rtcID);
     void setSequenceID(string sequenceID);
+    void accept(Visitor visitor);
 
     string getConcatIndicator();
     string getMessageType();
@@ -26,6 +27,7 @@ class ECPRI: public Packet{
     string getProtocolVersion();
     string getRtcID();
     string getSequenceID();
+
 
 };
 

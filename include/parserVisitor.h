@@ -1,6 +1,6 @@
-#include "visitor.h"
+#include"visitor.h"
 
-class PacketVisitor : public Visitor
+class ParserVisitor : public Visitor
 {
 public:
     void visit(RawEthernet packet);

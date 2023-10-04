@@ -1,4 +1,5 @@
 #include "PacketVisitable.h"
+#include "PacketVisitor.h"
 
 class Packet: public Visitable{
 
@@ -20,9 +21,6 @@ class Packet: public Visitable{
     string getDestAddress();
     string setSourceAddress();
     string getPacketType();
-
-
-    void accept(PacketVisitor visitor) override;
 
 };
 

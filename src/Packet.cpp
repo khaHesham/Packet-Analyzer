@@ -31,7 +31,4 @@ string Packet::getPacketType(){
     return this->packetType;
 }
 
-void Packet::accept(PacketVisitor visitor){
-    return visitor.visit(this);
-}
 

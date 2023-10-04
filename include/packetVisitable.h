@@ -6,7 +6,7 @@ class Visitable{
 
     public:
 
-    virtual void accept(PacketVisitor visitor);
+    virtual void accept(Visitor visitor) = 0;
 
 };
 

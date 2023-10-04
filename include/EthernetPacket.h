@@ -9,6 +9,10 @@ class RawEthernet: public Packet{
     public:
 
     void setData(string data);
+    void accept(Visitor visitor);
+    
     string getData();
+    
+
 };
 
