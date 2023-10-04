@@ -7,3 +7,4 @@ void RawEthernet::setData(string data){
 string RawEthernet::getData(){
     return this->data;
 }
+

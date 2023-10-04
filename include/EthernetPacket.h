@@ -11,3 +11,4 @@ class RawEthernet: public Packet{
     void setData(string data);
     string getData();
 };
+

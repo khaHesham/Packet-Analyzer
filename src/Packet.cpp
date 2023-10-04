@@ -34,3 +34,4 @@ string Packet::getPacketType(){
 void Packet::accept(PacketVisitor visitor){
     return visitor.visit(this);
 }
+

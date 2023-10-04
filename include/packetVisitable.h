@@ -9,3 +9,4 @@ class Visitable{
     virtual void accept(PacketVisitor visitor);
 
 };
+
