@@ -47,7 +47,7 @@ string ECPRI::getSequenceID(){
     return this->sequenceID;
 }
 
-void ECPRI::accept(Visitor visitor){
+void ECPRI::accept(Visitor& visitor){
     visitor.visit(*this);
 }
 

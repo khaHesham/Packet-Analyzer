@@ -9,6 +9,6 @@ string RawEthernet::getData(){
 }
 
 
-void RawEthernet::accept(Visitor visitor){
+void RawEthernet::accept(Visitor& visitor){
     visitor.visit(*this);
 }

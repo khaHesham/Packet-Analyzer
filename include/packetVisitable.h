@@ -1,12 +1,11 @@
 #include <string>
+#include "packetVisitor.h"
 
 using namespace std;
 
-class Visitable{
+class Visitable
+{
 
-    public:
-
-    virtual void accept(Visitor visitor) = 0;
-
+public:
+    virtual void accept(Visitor &visitor) = 0;
 };
-
