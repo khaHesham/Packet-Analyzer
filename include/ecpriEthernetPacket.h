@@ -1,4 +1,8 @@
+#ifndef ECPRI_ETHERNET_PACKET_H
+#define ECPRI_ETHERNET_PACKET_H
+
 #include "packet.h"
+#include "packetVisitable.h"
 
 class ECPRI : public Packet, public Visitable
 {
@@ -27,3 +31,5 @@ public:
     string getRtcID();
     string getSequenceID();
 };
+
+#endif // ECPRI_ETHERNET_PACKET_H

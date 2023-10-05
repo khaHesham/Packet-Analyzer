@@ -2,6 +2,7 @@
 #define ETHERNET_PACKET_H
 
 #include "packet.h"
+#include "packetVisitable.h"
 
 class RawEthernet : public Packet, public Visitable
 {

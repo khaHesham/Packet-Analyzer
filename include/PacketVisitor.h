@@ -1,5 +1,5 @@
 #include "visitor.h"
-#include"EthernetPacket.h"
+#include"ethernetPacket.h"
 #include"ecpriEthernetPacket.h"
 
 class PacketVisitor : public Visitor

@@ -1,7 +1,7 @@
 #ifndef PACKET_H
 #define PACKET_H
 
-#include "PacketVisitable.h"
+#include "packetVisitable.h"
 
 class Packet
 {
