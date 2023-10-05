@@ -3,6 +3,10 @@
 
 #include "packet.h"
 #include "packetVisitable.h"
+#include "visitor.h"
+
+using namespace std;
+
 
 class ECPRI : public Packet, public Visitable
 {
@@ -22,7 +26,7 @@ public:
     void setProtocolVersion(string protocolVersion);
     void setRtcID(string rtcID);
     void setSequenceID(string sequenceID);
-    void accept(Visitor &visitor);
+    void accept(Visitor &visitor) override;
 
     string getConcatIndicator();
     string getMessageType();

@@ -1,3 +1,6 @@
+#ifndef PARSER_H
+#define PARSER_H
+
 #include <string>
 #include <iostream>
 
@@ -23,3 +26,5 @@ public:
     string getSourceAddress() const;
     string getData() const;
 };
+
+#endif // PARSER_H

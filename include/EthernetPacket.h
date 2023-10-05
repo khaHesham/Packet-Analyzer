@@ -3,6 +3,7 @@
 
 #include "packet.h"
 #include "packetVisitable.h"
+#include "visitor.h"
 
 class RawEthernet : public Packet, public Visitable
 {
@@ -11,7 +12,7 @@ private:
 
 public:
     void setData(string data);
-    void accept(Visitor &visitor);
+    void accept(Visitor &visitor) override;
     string getData();
 };
 

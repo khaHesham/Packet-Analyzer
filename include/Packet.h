@@ -1,7 +1,8 @@
 #ifndef PACKET_H
 #define PACKET_H
 
-#include "packetVisitable.h"
+#include<string>
+using namespace std;
 
 class Packet
 {
