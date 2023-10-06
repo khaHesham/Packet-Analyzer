@@ -3,6 +3,9 @@
 
 #include "visitor.h"
 
+class Visitor;
+
+
 using namespace std;
 
 class Visitable
@@ -10,7 +13,6 @@ class Visitable
 
 public:
     virtual void accept(Visitor &visitor) = 0;
-    virtual ~Visitable() = default;
 };
 
 #endif // PACKET_VISITABLE_H

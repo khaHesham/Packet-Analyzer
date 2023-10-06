@@ -1,14 +1,16 @@
 #ifndef ECPRI_ETHERNET_PACKET_H
 #define ECPRI_ETHERNET_PACKET_H
 
+#include <string>
+
 #include "packet.h"
 #include "packetVisitable.h"
-#include "visitor.h"
 
 using namespace std;
 
+class Visitor;
 
-class ECPRI : public Packet, public Visitable
+class ECPRI : public Visitable, public Packet
 {
 
 private:
@@ -20,12 +22,16 @@ private:
     string sequenceID;
 
 public:
+    ECPRI(Parser parser) : Packet(parser) {}
     void setConcatIndicator(string concatenationIndicator);
     void setMessageType(string messageType);
     void setPayloadSize(string payloadSize);
     void setProtocolVersion(string protocolVersion);
     void setRtcID(string rtcID);
     void setSequenceID(string sequenceID);
+
+    void processPacket();
+
     void accept(Visitor &visitor) override;
 
     string getConcatIndicator();

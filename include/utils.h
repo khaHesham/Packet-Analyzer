@@ -19,7 +19,6 @@ public:
     vector<string> readPackets();
     void writeToFile(string content);
     void openFile(string filePath, std::ios_base::openmode mode);
-    ~IOUtils();
 };
 
 #endif // UTILS_H

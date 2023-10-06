@@ -71,3 +71,8 @@ string Parser::getData() const
     int dataLength = this->packet.size() - 8 - 60;
     return this->packet.substr(60, dataLength);
 }
+
+string Parser::getWholePacket() const
+{
+    return this->packet;
+}

@@ -1,19 +1,20 @@
 #ifndef ETHERNET_PACKET_H
 #define ETHERNET_PACKET_H
 
+#include <string>
+
 #include "packet.h"
 #include "packetVisitable.h"
-#include "visitor.h"
 
-class RawEthernet : public Packet, public Visitable
+using namespace std;
+
+class Visitor;
+
+class RawEthernet : public Visitable, public Packet
 {
-private:
-    string data;
-
 public:
-    void setData(string data);
+    RawEthernet(Parser parser) : Packet(parser) {}
     void accept(Visitor &visitor) override;
-    string getData();
 };
 
 #endif // ETHERNET_PACKET_H

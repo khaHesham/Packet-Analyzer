@@ -1,20 +1,35 @@
-#include "./include/packetVisitor.h"
+#include "../include/packetVisitor.h"
+
 #include <iostream>
-#include "packetVisitor.h"
 
 using namespace std;
 
-PacketVisitor::PacketVisitor(IOUtils &ioUtils)
-{
-    this->ioUtils = ioUtils;
-}
 // this function should print to the output file
-void PacketVisitor::visit(RawEthernet &packet){
-    ioUtils.
-    ioUtils->writeToFile("RawEthernet packet visited");
+void PacketVisitor::visit(ECPRI &packet)
+{
+    ioUtils->writeToFile("packet # " + packet.getID() + ":");
+    ioUtils->writeToFile(packet.getData());
+    ioUtils->writeToFile("CRC: " + packet.getCRC());
+    ioUtils->writeToFile("Concatenation Indicator: " + packet.getConcatIndicator());
+    ioUtils->writeToFile("Destination Address: " + packet.getDestAddress());
+    ioUtils->writeToFile("Message Type: " + packet.getMessageType());
+    ioUtils->writeToFile("Payload Size: " + packet.getPayloadSize());
+    ioUtils->writeToFile("Protocol Version: " + packet.getProtocolVersion());
+    ioUtils->writeToFile("RTC ID: " + packet.getRtcID());
+    ioUtils->writeToFile("Sequence ID: " + packet.getSequenceID());
+    ioUtils->writeToFile("Source Address: " + packet.getSourceAddress());
+    ioUtils->writeToFile("Type: " + packet.getPacketType());
+    ioUtils->writeToFile("\n*********************************************************************************************************************************************\n");
 }
 
 // this function should print to the output file
-void PacketVisitor::visit(ECPRI &packet){
-    ioUtils->writeToFile("ECPRI packet visited");
+void PacketVisitor::visit(RawEthernet &packet)
+{
+    ioUtils->writeToFile("packet # " + packet.getID() + ":");
+    ioUtils->writeToFile(packet.getData());
+    ioUtils->writeToFile("CRC: " + packet.getCRC());
+    ioUtils->writeToFile("Destination Address: " + packet.getDestAddress());
+    ioUtils->writeToFile("Source Address: " + packet.getSourceAddress());
+    ioUtils->writeToFile("Type: " + packet.getPacketType());
+    ioUtils->writeToFile("\n*********************************************************************************************************************************************\n");
 }

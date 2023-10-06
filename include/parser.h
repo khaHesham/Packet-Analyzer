@@ -25,6 +25,7 @@ public:
     string getMessageType() const;
     string getSourceAddress() const;
     string getData() const;
+    string getWholePacket() const;
 };
 
 #endif // PARSER_H

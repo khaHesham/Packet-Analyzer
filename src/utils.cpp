@@ -12,6 +12,7 @@ IOUtils::IOUtils(string inputFilePath, string outputFilePath)
 vector<string> IOUtils::readPackets()
 {
     vector<string> packets;
+    cout << "Reading packets from file" << endl;
 
     if (reader.is_open())
     {
@@ -37,6 +38,7 @@ void IOUtils::writeToFile(string content)
     {
         std::cerr << "Unable to write in file " << std::endl;
     }
+
 }
 
 void IOUtils::openFile(string filePath, std::ios_base::openmode mode)
@@ -54,10 +56,6 @@ void IOUtils::openFile(string filePath, std::ios_base::openmode mode)
     {
         std::cerr << "Unable to open file " << std::endl;
     }
+
 }
 
-IOUtils::~IOUtils()
-{
-    reader.close();
-    writer.close();
-}

@@ -2,19 +2,18 @@
 #include <string>
 #include <vector>
 
+#include "../include/packetVisitor.h"
+#include "../include/parser.h"
 #include "../include/ecpriEthernetPacket.h"
 #include "../include/ethernetPacket.h"
-#include "../include/parser.h"
 #include "../include/utils.h"
-#include "../include/packetVisitor.h"
-
 
 using namespace std;
 
+int main()
+{
 
-int main(){
-
-    string inputFilePath = "io/in_packets";
+    string inputFilePath = "io/input_packets";
     string outputFilePath = "io/out_packets";
 
     IOUtils ioUtils(inputFilePath, outputFilePath);
@@ -24,38 +23,25 @@ int main(){
     Parser parser;
     PacketVisitor packetVisitor(ioUtils);
 
-
-    for(string packet: packetVector){
+    for (string packet : packetVector)
+    {
         parser.setPacket(packet);
         string packetType = parser.getPacketType();
-        
-        if(packetType == "AEFE"){
-            ECPRI ecepriPacket;
-            ecepriPacket.setConcatIndicator(parser.getConcatIndicator());
-            ecepriPacket.setCRC(parser.getCRC());
-            ecepriPacket.setDestAddress(parser.getDestAdress());
-            ecepriPacket.setMessageType(parser.getMessageType());
-            ecepriPacket.setPacketType(packetType);
-            ecepriPacket.setPayloadSize(parser.getPayloadSize());
-            ecepriPacket.setRtcID(parser.getRtcID());
-            ecepriPacket.setProtocolVersion(parser.getProtocolVersion());
-            ecepriPacket.setSequenceID(parser.getSequenceID());
-            ecepriPacket.setSourceAddress(parser.getSourceAddress());
+
+        if (packetType == "AEFE")
+        {
+            ECPRI ecepriPacket(parser);
+            ecepriPacket.processPacket();
             ecepriPacket.accept(packetVisitor);
         }
-        else{
-            RawEthernet rawEthernetPacket;
-            rawEthernetPacket.setDestAddress(parser.getDestAdress());
-            rawEthernetPacket.setCRC(parser.getCRC());
-            rawEthernetPacket.setSourceAddress(parser.getSourceAddress());
-            rawEthernetPacket.setPacketType(packetType);
-            rawEthernetPacket.setData(parser.getData());
+        else
+        {
+            RawEthernet rawEthernetPacket(parser);
             rawEthernetPacket.accept(packetVisitor);
         }
-        
     }
 
+    cout << "Packets processed successfully!" << endl;
+
+    return 0;
 }
-
-
-
