@@ -66,7 +66,6 @@ string Parser::getSourceAddress() const
 // return the data starting from 30th byte to the last 4 bytes (CRC)
 string Parser::getData() const
 {
-
     // the -8 for CRC and -60 for the header this ensures we get the data only
     int dataLength = this->packet.size() - 8 - 60;
     return this->packet.substr(60, dataLength);

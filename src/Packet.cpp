@@ -53,14 +53,9 @@ string Packet::getID()
     return std::to_string(this->ID);
 }
 
-void Packet::setData(string data)
-{
-    this->data = data;
-}
-
 string Packet::getData()
 {
-    return this->data;
+    return this->parser.getWholePacket();
 }
 
 void Packet::handleCommonData()
@@ -69,5 +64,4 @@ void Packet::handleCommonData()
     this->setDestAddress(this->parser.getDestAdress());
     this->setSourceAddress(this->parser.getSourceAddress());
     this->setPacketType(this->parser.getPacketType());
-    this->setData(this->parser.getWholePacket());
 }

@@ -14,7 +14,6 @@ private:
     string destinationAddress;
     string sourceAddress;
     string packetType;
-    string data;
 
     int ID;
     static int IDCounter;
@@ -28,7 +27,6 @@ public:
     void setDestAddress(string destinationAddress);
     void setSourceAddress(string sourceAddress);
     void setPacketType(string packetType);
-    void setData(string data);
 
     void handleCommonData();
 
