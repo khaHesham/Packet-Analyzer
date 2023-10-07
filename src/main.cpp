@@ -10,11 +10,16 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
+    if (argc != 3)
+    {
+        cerr << "Usage: " << argv[0] << " <input_file_path> <output_file_path>" << endl;
+        return 1;
+    }
 
-    string inputFilePath = "io/input_packets";
-    string outputFilePath = "io/out_packets";
+    string inputFilePath = argv[1];
+    string outputFilePath = argv[2];
 
     IOUtils ioUtils(inputFilePath, outputFilePath);
 

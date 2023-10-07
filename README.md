@@ -1,6 +1,10 @@
 # Packet Analyzer
 
-The Packet Analyzer is a program designed to read an input text file containing Ethernet packets, parse each packet into its individual fields, and then write the parsed packets with their fields into an output text file. The input file consists of lines, each representing one packet of data. The packets can either be raw Ethernet frames or Enhanced Common Public Radio Interface (e-CPRI) frames built over Ethernet. The distinction between Ethernet frames and e-CPRI frames is made based on the Type field; if the Type field is "AEFE," the frame is identified as an e-CPRI frame.
+In the dynamic landscape of network technologies, the ability to analyze data packets is paramount for ensuring network security, optimizing performance, and troubleshooting issues effectively. A Packet Analyzer, also commonly referred to as a Packet Sniffer, stands as a pivotal tool in this realm. It serves as the cornerstone for network administrators, cybersecurity professionals, and developers, enabling them to dissect and comprehend the intricate details of data packets traversing a network.
+
+A Packet Analyzer is a sophisticated software or hardware tool meticulously engineered to capture, interpret, and analyze data packets as they travel across a network infrastructure. By inspecting the packet headers, payloads, and various protocol information, it provides invaluable insights into network behavior, aiding professionals in diagnosing network anomalies, identifying security threats, and enhancing overall network efficiency.
+
+The program designed to read an input file containing Ethernet packets, parse each packet into its individual fields, and then write the parsed packets with their fields into an output file. The input file consists of lines, each representing one packet of data. The packets can either be raw Ethernet frames or Enhanced Common Public Radio Interface (e-CPRI) frames built over Ethernet. The distinction between Ethernet frames and e-CPRI frames is made based on the Type field; if the Type field is "AEFE," the frame is identified as an e-CPRI frame.
 
 ### Ethernet Frame Structure
 
@@ -19,7 +23,7 @@ e-CPRI frames, built over Ethernet, have the same fields as Ethernet frames but 
 
 ## System Design
 
-![]()![1696659927530](image/README/1696659927530.png)
+![1696684811543](image/README/1696684811543.png)
 
 ## How to Run the Program
 
@@ -39,10 +43,11 @@ Follow these steps to run the Packet Analyzer program:
 3. **Run the Program:**
 
    ```bash
-   ./my_program
+   .\my_program.exe <input_file_path> <output_file_path>
+   Ex: .\my_program.exe io/input_packets io/output_packets 
    ```
 4. **Check the Output:**
-   The parsed packets with their fields will be written to the `out_packets.txt` file.
+   The parsed packets with their fields will be written to the `output_packets` file.
 
 ## References
 
