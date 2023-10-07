@@ -18,6 +18,8 @@ private:
     int ID;
     static int IDCounter;
 
+    void handleCommonData();
+
 protected:
     Parser parser;
 
@@ -27,8 +29,6 @@ public:
     void setDestAddress(string destinationAddress);
     void setSourceAddress(string sourceAddress);
     void setPacketType(string packetType);
-
-    void handleCommonData();
 
     string getData();
     string getCRC();

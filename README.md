@@ -19,7 +19,7 @@ e-CPRI frames, built over Ethernet, have the same fields as Ethernet frames but 
 
 ## System Design
 
-![1696616649500](image/README/1696616649500.png)
+![]()![1696659927530](image/README/1696659927530.png)
 
 ## How to Run the Program
 
