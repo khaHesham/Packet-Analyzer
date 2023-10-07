@@ -53,7 +53,7 @@ string Packet::getID()
     return std::to_string(this->ID);
 }
 
-string Packet::getData()
+string Packet::getWholePacket()
 {
     return this->parser.getWholePacket();
 }

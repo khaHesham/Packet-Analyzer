@@ -30,7 +30,7 @@ public:
     void setSourceAddress(string sourceAddress);
     void setPacketType(string packetType);
 
-    string getData();
+    string getWholePacket();
     string getCRC();
     string getDestAddress();
     string getSourceAddress();
