@@ -1,12 +1,18 @@
-#include <string>
+#ifndef PACKET_VISITABLE_H
+#define PACKET_VISITABLE_H
+
+#include "visitor.h"
+
+class Visitor;
+
 
 using namespace std;
 
-class Visitable{
+class Visitable
+{
 
-    public:
-
-    virtual void accept(PacketVisitor visitor);
-
+public:
+    virtual void accept(Visitor &visitor) = 0;
 };
 
+#endif // PACKET_VISITABLE_H

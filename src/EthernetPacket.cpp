@@ -1,10 +1,6 @@
-#include "./include/ethernetPacket.h"
+#include "../include/ethernetPacket.h"
 
-void RawEthernet::setData(string data){
-    this->data = data;
+
+void RawEthernet::accept(Visitor& visitor){
+    visitor.visit(*this);
 }
-
-string RawEthernet::getData(){
-    return this->data;
-}
-

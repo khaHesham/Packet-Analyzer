@@ -1,37 +1,67 @@
+#include "../include/packet.h"
 #include "packet.h"
 
+int Packet::IDCounter = 0;
 
-void Packet::setCRC(string CRC){
+Packet::Packet(Parser parser)
+{
+    this->ID = IDCounter++;
+    this->parser = parser;
+    handleCommonData();
+}
+
+void Packet::setCRC(string CRC)
+{
     this->CRC = CRC;
 }
 
-void Packet::setDestAddress(string destinationAddress){
+void Packet::setDestAddress(string destinationAddress)
+{
     this->destinationAddress = destinationAddress;
 }
-void Packet::setSourceAddress(string sourceAddress){
+void Packet::setSourceAddress(string sourceAddress)
+{
     this->sourceAddress = sourceAddress;
 }
-void Packet::setPacketType(string packetType){
+void Packet::setPacketType(string packetType)
+{
     this->packetType = packetType;
 }
 
-string Packet::getCRC(){
+string Packet::getCRC()
+{
     return this->CRC;
 }
 
-string Packet::getDestAddress(){
+string Packet::getDestAddress()
+{
     return this->destinationAddress;
 }
 
-string Packet::setSourceAddress(){
+string Packet::getSourceAddress()
+{
     return this->sourceAddress;
 }
 
-string Packet::getPacketType(){
+string Packet::getPacketType()
+{
     return this->packetType;
 }
 
-void Packet::accept(PacketVisitor visitor){
-    return visitor.visit(this);
+string Packet::getID()
+{
+    return std::to_string(this->ID);
 }
 
+string Packet::getData()
+{
+    return this->parser.getWholePacket();
+}
+
+void Packet::handleCommonData()
+{
+    this->setCRC(this->parser.getCRC());
+    this->setDestAddress(this->parser.getDestAdress());
+    this->setSourceAddress(this->parser.getSourceAddress());
+    this->setPacketType(this->parser.getPacketType());
+}

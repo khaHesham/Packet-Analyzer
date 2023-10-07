@@ -1,28 +1,41 @@
-#include "PacketVisitable.h"
+#ifndef PACKET_H
+#define PACKET_H
 
-class Packet: public Visitable{
+#include <string>
+using namespace std;
 
-    private:
+#include "parser.h"
 
+class Packet
+{
+
+private:
     string CRC;
     string destinationAddress;
     string sourceAddress;
     string packetType;
 
-    public:
+    int ID;
+    static int IDCounter;
 
+    void handleCommonData();
+
+protected:
+    Parser parser;
+
+public:
+    Packet(Parser parser);
     void setCRC(string CRC);
     void setDestAddress(string destinationAddress);
     void setSourceAddress(string sourceAddress);
     void setPacketType(string packetType);
 
+    string getData();
     string getCRC();
     string getDestAddress();
-    string setSourceAddress();
+    string getSourceAddress();
     string getPacketType();
-
-
-    void accept(PacketVisitor visitor) override;
-
+    string getID();
 };
 
+#endif // PACKET_H
